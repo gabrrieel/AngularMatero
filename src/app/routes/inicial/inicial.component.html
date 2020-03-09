@@ -1,0 +1,165 @@
+
+<breadcrumb></breadcrumb>
+<div class="header">
+    <br>
+    <h1 class="h1">DASHBOARD DE INTEGRAÇÕES</h1>
+    <br>
+    <div class="opcoes">
+        <form action="" [formGroup]="formIntegracao">
+            <span for='data' class="dataTitulo">Data: </span>
+            <mat-form-field class="dataDisplay">
+                <input matInput [matDatepicker]="picker1" class="pointer" formControlName='data'
+                       (click)="picker1.open()" readonly>
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+
+
+            <span id='mercado' class="mercadoTitulo">Mercado: </span>
+            <select formControlName='mercado' class="mercado colorMenu" name="mercado">
+                <option value="itau">Itaú</option>
+                <option value="outros">Outros</option>
+            </select>
+
+
+
+            <span id="tipoOperacao" class="tipoOperacaoTitulo"> Tipo de Operação: </span>
+            <select formControlName='tipoOperacao' class="tipoOperacao colorMenu"
+                    name="tipoOperacao">
+                <option value="todas">Todas</option>
+                <option value="compra">Compra</option>
+                <option value="venda">Venda</option>
+            </select>
+
+            <button (click)="filtro()" class="filtrar colorMenu"> Filtrar
+            </button>
+        </form>
+
+    </div>
+</div>
+
+<mat-tab-group mat-align-tabs="center">
+
+    <mat-tab label='Visão Boleta'>
+<br>
+        <div fxLayout="row wrap">
+
+            <!-- Statistics -->
+            <div class="matero-col" fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100"
+                 *ngFor="let stat of boleta">
+                <mat-card [ngClass]="['text-white', stat.color]">
+                    <mat-card-title class="f-s-12 f-w-100">{{stat.title}}</mat-card-title>
+                    <mat-card-content>
+                        <h2>R$ {{stat.amount}}</h2>
+                        <mtx-progress [value]="stat.progress.value"
+                                      height="2px"
+                                      foreground="rgba(255,255,255,1)"
+                                      background='rgba(0,0,0,.5)'>
+                        </mtx-progress>
+                        <small class="text-muted">{{stat.opcao}}</small>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <!-- Charts -->
+            
+            <div class="matero-col" fxFlex="100" fxFlex.gt-sm="75" *ngFor="let desc1 of descBoleta">
+                <mat-card>
+                    <mat-card-subtitle>{{desc1.descSimples}}</mat-card-subtitle>
+                    <div id="chart1"></div>
+                </mat-card>
+            </div>
+            <div class="matero-col" fxFlex="100" fxFlex.gt-sm="25" *ngFor="let desc1 of descBoleta">
+                <mat-card>
+                    <mat-card-subtitle>{{desc1.descCompleta}}</mat-card-subtitle>
+                    <div id="chart2"></div>
+                </mat-card>
+            </div>
+            
+            <!-- Others -->
+
+        </div>
+
+    </mat-tab>
+
+    <mat-tab label='Visão Operação'>
+<br>
+        <div fxLayout="row wrap">
+
+            <!-- Statistics -->
+            <div class="matero-col" fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100"
+                 *ngFor="let stat2 of operacao">
+                <mat-card [ngClass]="['text-white', stat2.color]">
+                    <mat-card-title class="f-s-12 f-w-100">{{stat2.title}}</mat-card-title>
+                    <mat-card-content>
+                        <h2>R$ {{stat2.amount}}</h2>
+                        <mtx-progress [value]="stat2.progress.value"
+                                      height="2px"
+                                      foreground="rgba(255,255,255,1)"
+                                      background='rgba(0,0,0,.5)'>
+                        </mtx-progress>
+                        <small class="text-muted">{{stat2.opcao}}</small>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <!-- Charts -->
+            <div class="matero-col" fxFlex="100" fxFlex.gt-sm="50" *ngFor="let desc1 of descTotal">
+                <mat-card>
+                    <mat-card-subtitle>{{desc1.descSimples}}</mat-card-subtitle>
+                    <div id="chart1"></div>
+                </mat-card>
+            </div>
+            <div class="matero-col" fxFlex="100" fxFlex.gt-sm="50" *ngFor="let desc1 of descTotal">
+                <mat-card>
+                    <mat-card-subtitle>{{desc1.descCompleta}}</mat-card-subtitle>
+                    <div id="chart2"></div>
+                </mat-card>
+            </div>
+            <!-- Others -->
+
+        </div>
+
+    </mat-tab>
+
+    <mat-tab label='Total'>
+<br>
+        <div fxLayout="row wrap">
+ 
+            <!-- Statistics -->
+            <div class="matero-col" fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100"
+                 *ngFor="let stat3 of total">
+                <mat-card [ngClass]="['text-white', stat3.color]">
+                    <mat-card-title class="f-s-12 f-w-100">{{stat3.title}}</mat-card-title>
+                    <mat-card-content>
+                        <h2>R$ {{stat3.amount}}</h2>
+                        <mtx-progress [value]="stat3.progress.value"
+                                      height="2px"
+                                      foreground="rgba(255,255,255,1)"
+                                      background='rgba(0,0,0,.5)'>
+                        </mtx-progress>
+                        <small class="text-muted">{{stat3.opcao}}</small>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <!-- Charts -->
+            <div class="matero-col" fxFlex="100" fxFlex.gt-sm="25" *ngFor="let desc1 of descTotal">
+                <mat-card>
+                    <mat-card-subtitle>{{desc1.descSimples}}</mat-card-subtitle>
+                    <div id="chart1"></div>
+                </mat-card>
+            </div>
+            <div class="matero-col" fxFlex="100" fxFlex.gt-sm="75" *ngFor="let desc1 of descTotal">
+                <mat-card>
+                    <mat-card-subtitle>{{desc1.descCompleta}}</mat-card-subtitle>
+                    <div id="chart2"></div>
+                </mat-card>
+            </div>
+            <!-- Others -->
+
+        </div>
+
+    </mat-tab>
+
+</mat-tab-group>

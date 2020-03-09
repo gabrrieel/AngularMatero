@@ -1,0 +1,80 @@
+{
+  "menu": [{
+      "state": "dashboard",
+      "name": "Dashboard",
+      "type": "link",
+      "icon": "dashboard",
+      "badge": {
+        "color": "red-500",
+        "value": ""
+      }
+    },
+    {
+      "state": "inicial",
+      "name": "Inicial",
+      "type": "link",
+      "icon": "graphic_eq"
+    },
+
+    {
+      "state": "outro",
+      "name": "Outro",
+      "type": "link",
+      "icon": "insert_chart_outlined"
+    },
+    {
+      "state": "menu",
+      "name": "Menu",
+      "type":"sub",
+      "icon": "drafts",
+      "children":[
+        {
+        "state":"novo",
+        "name":"Itau",
+        "type":"link"
+      },
+    {
+      "state":"tata",
+      "name":"Teste",
+      "type":"link"
+    },
+  {
+    "state":"",
+      "name":"Sub",
+      "type":"sub",
+      "children":[{
+        "state":"exemplo",
+      "name":"Exemplo",
+      "type":"link"
+      },
+    {
+      "state":"outroexemplo",
+      "name":"Outro Exemplo",
+      "type":"link"
+    }]
+  }]
+    },
+    {
+      "state": "sessions",
+      "name": "Sessions",
+      "type": "sub",
+      "icon": "question_answer",
+      "children": [{
+          "state": "403",
+          "name": "403",
+          "type": "link"
+        },
+        {
+          "state": "404",
+          "name": "404",
+          "type": "link"
+        },
+        {
+          "state": "500",
+          "name": "500",
+          "type": "link"
+        }
+      ]
+    }
+  ]
+}

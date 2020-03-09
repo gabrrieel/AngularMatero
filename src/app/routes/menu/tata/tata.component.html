@@ -1,0 +1,98 @@
+
+
+<breadcrumb></breadcrumb>
+
+
+<div class="header">
+  <br>
+  <h1 class="h1">DASHBOARD DE INTEGRAÇÕES</h1>
+  <br>
+  <div class="opcoes">
+    <form action="" [formGroup]="formIntegracao">
+      <span for='data' class="dataTitulo">Data: </span>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker1" formControlName='data'
+               (click)="picker1.open()" readonly class="data">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+
+
+      <span id='mercado' class="mercadoTitulo">Mercado: </span>
+      <select formControlName='mercado' class="mercado colorMenu" name="mercado">
+        <option value="Itaú">Itau</option>
+        <option value="outros">Outros</option>
+      </select>
+
+
+
+      <span id="tipoOperacao" class="tipoOperacaoTitulo"> Tipo de Operação: </span>
+      <select formControlName='tipoOperacao' class="tipoOperacao colorMenu"
+              name="tipoOperacao">
+        <option value="todas">Todas</option>
+        <option value="compra">Compra</option>
+        <option value="venda">Venda</option>
+      </select>
+
+      <button (click)="teste()" class="filtrar colorMenu"> Filtrar
+      </button>
+    </form>
+
+  </div>
+</div>
+
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="Visão Boleta">
+    <br>
+
+    <div fxLayout="row wrap">
+
+      <!-- Statistics -->
+
+
+      <!-- Teste de card -->
+
+      <div class="matero-col" fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100"
+           *ngFor="let dados of vO; let index=index;">
+        <mat-card [ngClass]="['text-white', 'vB[index].cor']">
+          <mat-card-title class="f-s-12 f-w-100">{{vB[index].bloco}}</mat-card-title>
+          <mat-card-content>
+            <h2>{{vB[index].valor}}</h2>
+            <mtx-progress [value]='100'
+                          height="2px"
+                          foreground="rgba(255,255,255,1)"
+                          background='rgba(0,0,0,.5)'>
+            </mtx-progress>
+            <small class="text-muted">Consulta 1</small>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+
+      <!-- Charts -->
+
+      <div class="matero-col" fxFlex="100" fxFlex.gt-sm="50">
+        <mat-card>
+          <mat-card-subtitle>Traffic</mat-card-subtitle>
+          <div> Aqui estão os resultado das pesquisas realizadas, juntamente com o
+            resultado</div>
+        </mat-card>
+      </div>
+      <div class="matero-col" fxFlex="100" fxFlex.gt-sm="50">
+        <mat-card>
+          <mat-card-subtitle>Weekly Revenue</mat-card-subtitle>
+          <div>Aqui estão os resultado das pesquisas realizadas, juntamente com o
+            resultado</div>
+        </mat-card>
+      </div>
+      <!-- Others -->
+
+    </div>
+
+
+
+  </mat-tab>
+
+
+</mat-tab-group>
+

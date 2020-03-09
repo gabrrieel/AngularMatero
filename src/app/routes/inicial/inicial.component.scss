@@ -1,0 +1,86 @@
+
+.header {
+  background: #101426;
+  margin: 8px;
+  border-radius: 7px;
+}
+
+.opcoes {
+  margin-left: 8%;
+}
+  
+.mercadoTitulo {
+  margin-left: 30px;
+}
+
+.tipoOperacaoTitulo {
+  text-align: right;
+  margin-left: 30px;
+}
+
+.colorMenu {
+  color: #8C8C8C;
+  font-weight: 700;
+}
+
+.filtrar {
+  background: none;
+  border-style: groove;
+  border-radius: 12px;
+  margin-left: 45px;
+  cursor: pointer;
+}
+
+.tipoOperacao:hover{
+  background: #d8d7d7f8;
+  color: black;
+}
+
+.filtrar:hover {
+  background: #d8d7d7f8;
+  color: black;
+  box-shadow: none;
+  border: solid #d8d7d7f8;;
+}
+
+.mercado:hover {
+  background: #d8d7d7f8;
+  color: black;
+}
+
+.mercado {
+  background: none;
+  border: none;
+  margin-left: 5px;
+  border-radius: 12px;
+}
+
+.dataDisplay{
+    width: 110px;
+    cursor: pointer;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.tipoOperacao {
+  background: none;
+  border: none;
+  margin-left: 5px;
+  border-radius: 12px;
+}
+
+.h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  
+}
+
+.data {
+  width: 105px;
+  margin-left: 10px;
+  background: none;
+  border: none;
+  box-sizing: border-box;
+}

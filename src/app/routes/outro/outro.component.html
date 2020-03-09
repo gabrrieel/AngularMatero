@@ -1,0 +1,68 @@
+
+<page-header></page-header>
+<div class="center">
+  <div class="header">
+    <h1>DASHBOARD DE INTEGRAÇÕES</h1>
+    <br>
+    <div class="opcoes">
+      <form action="" [formGroup]="formIntegracao">
+        <span for='data' class="dataTitulo">Data: </span>
+        <input formControlName='data' class="data colorMenu" name='data' type="datetime-local">
+       
+      
+
+
+        <span id='mercado' class="mercadoTitulo">Mercado: </span>
+        <select formControlName='mercado' class="mercado colorMenu" name="mercado">
+          <option value="itau">Itau</option>
+          <option value="outros">Outros</option>
+        </select>
+
+
+
+        <span id="tipoOperacao" class="tipoOperacaoTitulo"> Tipo de Operação: </span>
+        <select formControlName='tipoOperacao' class="tipoOperacao colorMenu" name="tipoOperacao">
+          <option value="todas">Todas</option>
+          <option value="compra">Compra</option>
+          <option value="venda">Venda</option>
+        </select>
+
+        <button (click)="teste()" class="filtrar colorMenu"> Filtrar
+        </button>
+      </form>
+
+    </div>
+  </div>
+  <div class="containerBloco">
+    <div class="left colored-column-warning">
+      <p class="titMenu">Visão Boleta</p>
+
+      <div *ngFor="let dados of vB; let index=index;">
+        <div class="card right color{{vB[index].id}}">
+          <div class="container">
+            <p class="pCard">{{vB[index].bloco}}</p>
+
+            <p class="pCard">{{vB[index].valor}}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="right colored-column-warning">
+      <p class="titMenu">Visão Operação</p>
+
+      <div *ngFor="let dados of vO; let index=index;">
+        <div class="card right color{{vO[index].id}}">
+          <div class="container">
+            <p class="pCard">{{vO[index].bloco}}</p>
+
+            <p class="pCard">{{vO[index].valor}}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
